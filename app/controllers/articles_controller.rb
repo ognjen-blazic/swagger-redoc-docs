@@ -1,5 +1,17 @@
+# frozen_string_literal: true
+
 class ArticlesController < ApplicationController
-  http_basic_authenticate_with name: "ogi", password: "pwd", except: [:index, :show]
+  http_basic_authenticate_with name: 'ogi', password: 'pwd', except: %i[index show]
+
+  swagger_controller :articles, 'Articles Management'
+
+  swagger_api :index do
+    summary 'Fetches all articles'
+    notes 'This lists all the articles'
+    param :query, :page, :integer, :optional, 'Page number'
+    response :unauthorized
+    response :not_acceptable
+  end
 
   def index
     @articles = Article.all
@@ -45,6 +57,7 @@ class ArticlesController < ApplicationController
   end
 
   private
+
   def article_params
     params.require(:article).permit(:title, :text)
   end

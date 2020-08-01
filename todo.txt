@@ -1,0 +1,10 @@
+redoc.js:
+- in main html file put:
+  <redoc spec-url="http://127.0.0.1:3000/api/v1/api-docs.json"></redoc>   // path to hosted swagger.json file
+  <script src="https://cdn.jsdelivr.net/npm/redoc/bundles/redoc.standalone.js"> </script> // or from node modules
+- redoc-cli serve file-name   // hosts swagger file and opens it in browser with redoc support
+- redoc-clie bundle file-name // generates standalone html file with redoc support
+
+1. swagger-docs:
+- not useful cause it generates multiple json files with Swagger 1.2 specifications that is not supported by redoc.js
+- documentation is written in controller files
