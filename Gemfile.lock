@@ -156,6 +156,7 @@ GEM
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
     sqlite3 (1.4.2)
+    swagger-blocks (3.0.0)
     swagger-docs (0.2.9)
       activesupport (>= 3)
       rails (>= 3)
@@ -202,6 +203,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   sqlite3 (~> 1.4)
+  swagger-blocks
   swagger-docs
   turbolinks (~> 5)
   tzinfo-data

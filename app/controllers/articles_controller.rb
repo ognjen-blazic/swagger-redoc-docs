@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ArticlesController < ApplicationController
+  include Swagger::Blocks
+
   http_basic_authenticate_with name: 'ogi', password: 'pwd', except: %i[index show]
 
   swagger_controller :articles, 'Articles Management'
@@ -11,6 +13,26 @@ class ArticlesController < ApplicationController
     param :query, :page, :integer, :optional, 'Page number'
     response :unauthorized
     response :not_acceptable
+  end
+
+  swagger_path '/articles' do
+    operation :get do
+      key :summary, 'All Articles'
+      key :description, 'Returns all articles from the system that the user has access to'
+      key :operationId, 'index'
+      key :produces, [
+        'application/json'
+      ]
+      response 200 do
+        key :description, 'article response'
+        schema do
+          key :type, :array
+          items do
+            key :'$ref', :Article
+          end
+        end
+      end
+    end
   end
 
   def index

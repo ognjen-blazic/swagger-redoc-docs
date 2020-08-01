@@ -5,6 +5,10 @@ redoc.js:
 - redoc-cli serve file-name   // hosts swagger file and opens it in browser with redoc support
 - redoc-clie bundle file-name // generates standalone html file with redoc support
 
-1. swagger-docs:
+1. swagger-docs gem:
 - not useful cause it generates multiple json files with Swagger 1.2 specifications that is not supported by redoc.js
 - documentation is written in controller files
+
+2. swagger-blocks gem:
+- Swagger 2.0 compatible
+- documentation is written in controller and model files
